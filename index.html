@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    rect {
+      fill: none;
+    }
+
+    body {
+      font-family: "Courier New", sans-serif;
+      font-weight: 100;
+      background: black;
+    }
+
+    text {
+      fill: white;
+    }
+
+    #graphic svg {
+      margin: 0 auto;
+      display: block;
+    }
+
+    #chart text, #word text {
+      alignment-baseline: middle;
+    }
+
+    .highlight rect {
+      fill: yellow;
+    }
+
+    #banner text {
+      text-anchor: start;
+      alignment-baseline: hanging;
+      fill: black;
+      font-size: 50px;
+    }
+
+    #banner rect {
+      fill: #CCC;
+      fill: pink;
+    }
+
+    .number {
+      fill: darkred;
+    }
+
+    .symbol {
+      fill: black;
+    }
+
+    .stripe-background rect:nth-child(odd) {
+      fill: #f1f1f1;
+    }
+
+    .stripe-background rect:nth-child(even) {
+      fill: #ffffff;
+    }
+
+    .invisible {
+      display: none;
+    }
+
+    #word {
+      text-anchor: middle;
+    }
+
+    #word .symbol {
+      font-size: 64pt;
+      alignment-baseline: baseline;
+    }
+
+    #word .number {
+      font-size: 32pt;
+      alignment-baseline: hanging;
+    }
+
+    #word rect {
+      fill: #f1f1f1;
+    }
+
+    #chart .number {
+      text-anchor: end;
+    }
+
+    #chart .symbol {
+      text-anchor: start;
+    }
+
+    #decoder text {
+      text-anchor: middle;
+    }
+
+    #decoder text.charset-title {
+      text-anchor: end;
+    }
+
+    .decoder-codes-header {
+      font-weight: bold;
+    }
+
+    .charset-translation {
+      font-size: 36px;
+    }
+
+    .charset-translation .charset-title, #decoder .number {
+      font-size: 36px;
+      fill: white;
+      font-weight: normal;
+    }
+
+    .charset-translation rect {
+      fill: #f1f1f1;
+    }
+
+    .charset-translation text {
+      fill: black;
+    }
+
+    .highlighted rect {
+      fill: #FFFBCC;
+    }
+
+    .charset-translation.highlighted rect {
+      fill: pink;
+    }
+    #long-text {
+      font-size: 42px;
+    }
+
+    .square rect {
+      fill: white;
+    }
+
+    .square text {
+      fill: black;
+      text-anchor: middle;
+      alignment-baseline: middle;
+    }
+
+    #images {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #images img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    img {
+      display: none;
+    }
+
+    #images {
+      height: 800px;
+      width: 1280px;
+      overflow: hidden;
+    }
+
+    #intro {
+      color: white;
+      font-family: "Courier", sans-serif;
+      width: 1280px;
+      margin: 0 auto;
+      text-align: center;
+      z-index: 100;
+    }
+
+    #intro h1 {
+      font-size: 56px;
+      margin-bottom: 1.0em;
+      background: pink;
+      color: black;
+      padding: 150px 30px;
+    }
+
+    #intro p {
+      font-size: 42px;
+    }
+
+    #intro small {
+      line-height: 3;
+      font-weight: normal;
+    }
+  </style>
+  <title>Character Encoding</title>
+</head>
+<body>
+  <div id="intro">
+    <h1>Why your international data looks like g͇͍̗͎ͅa͔̩͈͉̱̝̠͞r͇̲̼͢b̖̀a̬̘̞͈̯͇ǵ̞̳̼̰e̢</h1>
+    <p>Jonathan Soma, @dangerscarf
+      <br><small>jonathansoma.com/projects/charsets</small></p>
+  </div>
+  <div id="graphic"></div>
+  <div id="images" style="transform: translate(0, 0px)">
+    <div style="transform: translate(0, 50px)">
+      <img id="img-proposal" src="image-proposal.png" style="transform: translate(20px, 30px)">
+      <img id="img-dumpling" src="image-dumpling.png" style="transform: translate(700px, 20px)">
+      <img id="img-cricket" src="image-cricket.png" style="transform: translate(150px, 20px)">
+      <img id="img-flat" src="image-flat.png" style="transform: translate(100px, 60px)">
+
+      <img id="img-usa" src="image-usa.gif" style="transform: translate(850px, 100px) rotate(10deg)">
+      <img id="img-excel-1" src="image-excel-bad.png" style="transform: translate(20px, -40px) rotate(-10deg)">
+      <img id="img-excel-2" src="image-excel-import-text.png" style="transform: translate(100px, 40px)">
+      <img id="img-excel-3" src="image-excel-file-origin.png" style="transform: translate(600px, 40px)">
+      <img id="img-excel-4" src="image-excel-select-charset.png" style="transform: translate(919px, 0px)">
+      <img id="img-excel-5" src="image-excel-correct.png" style="transform: translate(200px, 10px) rotate(10deg)">
+      <img id="img-pandas" src="image-pandas.png" style="transform: translate(350px, 0px) rotate(-5deg)">
+    </div>
+  </div>
+  <script src="d3.min.js"></script>
+  <script src="iso-mapping.js"></script>
+  <script src="graphic.js"></script>
+</body>
+</html>
